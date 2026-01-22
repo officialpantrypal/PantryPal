@@ -28,7 +28,7 @@ const HowItWorksPage: React.FC = () => {
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Step 1 */}
-          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full">
+          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full overflow-hidden">
             <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors font-black text-8xl leading-none select-none z-0">1</div>
             <div className="relative z-10 flex flex-col gap-6 h-full">
               <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden relative">
@@ -56,80 +56,79 @@ const HowItWorksPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Step 2 - Refined Mock UI */}
-          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full">
+          {/* Step 2 - FIXED: Tightened framing, clipped overflow, and subtle motion */}
+          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full overflow-hidden">
             <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors font-black text-8xl leading-none select-none z-0">2</div>
             <div className="relative z-10 flex flex-col gap-6 h-full">
-              <div className="w-full aspect-[4/5] sm:aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden relative flex flex-col p-4">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-xs font-black text-primary uppercase tracking-widest">Live Editor</span>
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+              {/* Image/Mock Wrapper with fixed max-height and overflow clipping */}
+              <div className="w-full max-h-[320px] bg-gray-50 dark:bg-gray-900/50 rounded-xl overflow-hidden relative flex flex-col p-4">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Pantry Editor</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-3">
-                  {/* Mock Item 1 */}
-                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-3 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm scale-105 origin-left">
+                
+                <div className="flex flex-col gap-3 relative">
+                  {/* Subtle Y-translation (32px / 8 units) clipped within this container */}
+                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-3 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm transition-transform duration-500 group-hover:-translate-y-2 opacity-60">
                     <div className="flex items-center gap-3">
-                      <div className="size-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-500 flex items-center justify-center font-bold">🥛</div>
+                      <div className="text-lg">🥛</div>
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold text-text-main dark:text-white">Whole Milk</span>
-                        <span className="text-[10px] text-gray-400">Qty: 2L</span>
+                        <span className="text-xs font-bold dark:text-white">Whole Milk</span>
+                        <span className="text-[9px] text-gray-400">Qty: 2L</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                       <button className="text-[10px] font-bold bg-primary/10 text-primary px-2 py-1 rounded-md">Edit</button>
-                       <span className="text-[10px] font-bold text-orange-500 bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded-md">Oct 24</span>
+                    <span className="text-[9px] font-bold text-orange-500 bg-orange-50 dark:bg-orange-900/20 px-2 py-0.5 rounded">Exp 3d</span>
+                  </div>
+
+                  {/* Primary Featured Item - Focused Animation */}
+                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-4 rounded-xl border-2 border-primary dark:border-primary/50 shadow-lg transition-transform duration-500 group-hover:-translate-y-8 z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="text-xl">🥚</div>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-black text-text-main dark:text-white">Farm Eggs</span>
+                        <div className="flex items-center gap-2 mt-1">
+                          <button className="size-5 rounded bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs">-</button>
+                          <span className="text-xs font-bold text-primary">12</span>
+                          <button className="size-5 rounded bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs">+</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end gap-2">
+                       <button className="text-[10px] font-bold bg-primary text-white px-4 py-1.5 rounded-md shadow-sm">Save Changes</button>
+                       <span className="text-[9px] text-gray-400">Updated: Today</span>
                     </div>
                   </div>
-                  {/* Mock Item 2 */}
-                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-3 rounded-xl border border-primary dark:border-primary/50 shadow-md ring-2 ring-primary/10 scale-110 origin-center transition-transform group-hover:scale-[1.12]">
+
+                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-3 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm transition-transform duration-500 group-hover:-translate-y-12 opacity-40">
                     <div className="flex items-center gap-3">
-                      <div className="size-10 rounded-lg bg-orange-50 dark:bg-orange-900/20 text-orange-500 flex items-center justify-center font-bold">🥚</div>
+                      <div className="text-lg">🥑</div>
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold text-text-main dark:text-white">Farm Eggs</span>
-                        <span className="text-[10px] text-primary font-bold">Qty: 12</span>
+                        <span className="text-xs font-bold dark:text-white">Avocados</span>
+                        <span className="text-[9px] text-gray-400">Qty: 4</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                       <button className="text-[10px] font-bold bg-primary text-white px-3 py-1 rounded-md shadow-sm">Save</button>
-                       <span className="text-[10px] font-bold text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded-md">Exp 2d</span>
-                    </div>
-                  </div>
-                  {/* Mock Item 3 */}
-                  <div className="flex items-center justify-between bg-white dark:bg-gray-900 p-3 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm opacity-60 scale-95 origin-left">
-                    <div className="flex items-center gap-3">
-                      <div className="size-10 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-500 flex items-center justify-center font-bold">🥑</div>
-                      <div className="flex flex-col">
-                        <span className="text-sm font-bold text-text-main dark:text-white">Avocados</span>
-                        <span className="text-[10px] text-gray-400">Qty: 4</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                       <button className="text-[10px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded-md">Edit</button>
-                       <span className="text-[10px] font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-md">Fresh</span>
-                    </div>
+                    <span className="text-[9px] font-bold text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded">Fresh</span>
                   </div>
                 </div>
-                {/* Visual Accent */}
-                <div className="absolute -bottom-2 right-4 w-24 h-1 bg-primary/20 rounded-full"></div>
               </div>
-              <div className="flex flex-col gap-2 mt-auto">
+
+              <div className="flex flex-col gap-2 mt-4">
                 <div className="flex items-center gap-3">
                   <div className="size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">2</div>
                   <h3 className="text-2xl font-bold text-text-main dark:text-white">Track & Edit</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Your digital pantry updates instantly with PantryPal. AI estimates expiration dates, and you can easily update the "amount left" or purchase date.
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                  Your digital pantry updates instantly. AI estimates expiration dates, and you can easily update the "amount left" or quantity in real-time.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Step 3 */}
-          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full">
+          <div className="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 border border-gray-100 dark:border-gray-800 h-full overflow-hidden">
             <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors font-black text-8xl leading-none select-none z-0">3</div>
             <div className="relative z-10 flex flex-col gap-6 h-full">
               <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden relative">
