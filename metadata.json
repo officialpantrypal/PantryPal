@@ -1,0 +1,5 @@
+{
+  "name": "PantryPal website",
+  "description": "PantryPal tracks your groceries automatically. Scan receipts, monitor freshness, and save money while saving the planet.",
+  "requestFramePermissions": []
+}
