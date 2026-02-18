@@ -33,9 +33,9 @@ const PricingPage: React.FC = () => {
 
   // Prices
   const prices = {
-      premium: isYearly ? 4.99 * 12 * 0.8 / 12 : 4.99, // 3.99 if yearly approx
-      family5: isYearly ? 7.99 * 12 * 0.8 / 12 : 7.99, // 6.39 if yearly
-      family10: isYearly ? 12.99 * 12 * 0.8 / 12 : 12.99 // 10.39 if yearly
+      premium: isYearly ? 5.00 * 12 * 0.8 / 12 : 5.00, // 4.00 if yearly approx
+      family5: isYearly ? 8.00 * 12 * 0.8 / 12 : 8.00, // 6.40 if yearly
+      family10: isYearly ? 13.00 * 12 * 0.8 / 12 : 13.00 // 10.40 if yearly
   };
 
   return (
@@ -214,7 +214,7 @@ const PricingPage: React.FC = () => {
             <div className="flex flex-col items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 min-w-[200px]">
               <span className="text-sm font-medium text-gray-400 uppercase">Add-on Price</span>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-black text-white">$1.99</span>
+                <span className="text-4xl font-black text-white">$1.00</span>
                 <span className="text-sm text-gray-400">/mo</span>
               </div>
               <button 

@@ -35,22 +35,22 @@ const CheckoutPage: React.FC = () => {
   const pricing = {
     premium: {
       name: 'Premium',
-      baseMonthly: 4.99,
+      baseMonthly: 5.00,
       description: 'For individuals who want unlimited recipes and smart pantry tracking.'
     },
     family5: {
       name: 'Family (5 Users)',
-      baseMonthly: 7.99,
+      baseMonthly: 8.00,
       description: 'Share one pantry with up to five people.'
     },
     family10: {
       name: 'Family (10 Users)',
-      baseMonthly: 12.99,
+      baseMonthly: 13.00,
       description: 'Perfect for large families or shared households.'
     }
   };
 
-  const betaPriceMonthly = 1.99;
+  const betaPriceMonthly = 1.00;
   
   // Calculate Totals
   const currentPlanBase = pricing[planType].baseMonthly;
@@ -156,7 +156,7 @@ const CheckoutPage: React.FC = () => {
                    <div className="ml-3 flex-1">
                      <div className="flex justify-between items-center mb-1">
                        <span className="font-bold text-text-main dark:text-white text-lg">Premium</span>
-                       <span className="font-bold text-text-main dark:text-white">$4.99 / month</span>
+                       <span className="font-bold text-text-main dark:text-white">$5.00 / month</span>
                      </div>
                      <p className="text-sm text-gray-500 dark:text-gray-400">For individuals who want unlimited recipes and smart pantry tracking.</p>
                    </div>
@@ -169,7 +169,7 @@ const CheckoutPage: React.FC = () => {
                    <div className="ml-3 flex-1">
                      <div className="flex justify-between items-center mb-1">
                        <span className="font-bold text-text-main dark:text-white text-lg">Family (5 Users)</span>
-                       <span className="font-bold text-text-main dark:text-white">$7.99 / month</span>
+                       <span className="font-bold text-text-main dark:text-white">$8.00 / month</span>
                      </div>
                      <p className="text-sm text-gray-500 dark:text-gray-400">Share one pantry with up to five people.</p>
                    </div>
@@ -182,7 +182,7 @@ const CheckoutPage: React.FC = () => {
                    <div className="ml-3 flex-1">
                      <div className="flex justify-between items-center mb-1">
                        <span className="font-bold text-text-main dark:text-white text-lg">Family (10 Users)</span>
-                       <span className="font-bold text-text-main dark:text-white">$12.99 / month</span>
+                       <span className="font-bold text-text-main dark:text-white">$13.00 / month</span>
                      </div>
                      <p className="text-sm text-gray-500 dark:text-gray-400">Perfect for large families or shared households.</p>
                    </div>
@@ -231,7 +231,7 @@ const CheckoutPage: React.FC = () => {
                 <div className="ml-3 flex-1">
                   <div className="flex justify-between items-center mb-1">
                     <span className="font-bold text-text-main dark:text-white">Beta Program Access</span>
-                    <span className="font-bold text-text-main dark:text-white">+$1.99 / month</span>
+                    <span className="font-bold text-text-main dark:text-white">+$1.00 / month</span>
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Get early access to new features and help shape PantryPal’s future.</p>
                 </div>
