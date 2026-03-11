@@ -1,9 +1,30 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 type PlanType = 'premium' | 'family5' | 'family10';
 type BillingCycle = 'month' | 'year';
+
+// Pricing Configuration
+const pricing = {
+  premium: {
+    name: 'Premium',
+    baseMonthly: 5.00,
+    description: 'For individuals who want unlimited recipes and smart pantry tracking.'
+  },
+  family5: {
+    name: 'Family (5 Users)',
+    baseMonthly: 8.00,
+    description: 'Share one pantry with up to five people.'
+  },
+  family10: {
+    name: 'Family (10 Users)',
+    baseMonthly: 13.00,
+    description: 'Perfect for large families or shared households.'
+  }
+};
+
+const betaPriceMonthly = 1.00;
 
 const CheckoutPage: React.FC = () => {
   const location = useLocation();
@@ -31,39 +52,25 @@ const CheckoutPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  // Pricing Configuration
-  const pricing = {
-    premium: {
-      name: 'Premium',
-      baseMonthly: 5.00,
-      description: 'For individuals who want unlimited recipes and smart pantry tracking.'
-    },
-    family5: {
-      name: 'Family (5 Users)',
-      baseMonthly: 8.00,
-      description: 'Share one pantry with up to five people.'
-    },
-    family10: {
-      name: 'Family (10 Users)',
-      baseMonthly: 13.00,
-      description: 'Perfect for large families or shared households.'
-    }
-  };
-
-  const betaPriceMonthly = 1.00;
-  
   // Calculate Totals
-  const currentPlanBase = pricing[planType].baseMonthly;
-  const planPrice = billingCycle === 'month' ? currentPlanBase : (currentPlanBase * 12 * 0.8);
-  const betaCost = addBeta ? (billingCycle === 'year' ? betaPriceMonthly * 12 : betaPriceMonthly) : 0;
-  const total = planPrice + betaCost;
+  const { total, nextBillingDate } = useMemo(() => {
+    const currentPlanBase = pricing[planType].baseMonthly;
+    const planPrice = billingCycle === 'month' ? currentPlanBase : (currentPlanBase * 12 * 0.8);
+    const betaCost = addBeta ? (billingCycle === 'year' ? betaPriceMonthly * 12 : betaPriceMonthly) : 0;
+    const calculatedTotal = planPrice + betaCost;
 
-  const nextBillingDate = new Date();
-  if (billingCycle === 'year') {
-    nextBillingDate.setFullYear(nextBillingDate.getFullYear() + 1);
-  } else {
-    nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
-  }
+    const calculatedNextBillingDate = new Date();
+    if (billingCycle === 'year') {
+      calculatedNextBillingDate.setFullYear(calculatedNextBillingDate.getFullYear() + 1);
+    } else {
+      calculatedNextBillingDate.setMonth(calculatedNextBillingDate.getMonth() + 1);
+    }
+
+    return {
+      total: calculatedTotal,
+      nextBillingDate: calculatedNextBillingDate
+    };
+  }, [planType, billingCycle, addBeta]);
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
