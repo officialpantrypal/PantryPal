@@ -1,12 +1,8 @@
 
 import React from 'react';
+import { handleInactive } from '../utils/handleInactive';
 
 const HowItWorksPage: React.FC = () => {
-  const handleInactive = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new Event('trigger-toast'));
-  };
-
   return (
     <>
       {/* Hero Header */}
