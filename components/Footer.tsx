@@ -1,13 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { handleInactive } from '../utils/handleInactive';
 
 const Footer: React.FC = () => {
-  const handleInactive = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new Event('trigger-toast'));
-  };
-
   return (
     <footer className="bg-white dark:bg-background-dark border-t border-[#e5e7eb] dark:border-[#333] pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
