@@ -19,28 +19,77 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // Check local storage on mount
-    const storedUser = localStorage.getItem('pantry_user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    // Check for an active session with the backend.
+    // The browser will automatically include the HTTP-only session cookie if one exists.
+    const checkSession = async () => {
+      try {
+        const response = await fetch('/api/auth/me', {
+          credentials: 'include',
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data.user);
+        } else {
+          setUser(null);
+        }
+      } catch (error) {
+        console.error('Failed to verify session', error);
+      }
+    };
+
+    checkSession();
   }, []);
 
-  const login = (email: string) => {
-    const newUser = { email, name: email.split('@')[0] };
-    setUser(newUser);
-    localStorage.setItem('pantry_user', JSON.stringify(newUser));
+  const login = async (email: string) => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+        credentials: 'include', // Important to allow the backend to set the HTTP-only cookie
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data.user);
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Error during login', error);
+    }
   };
 
-  const signup = (email: string) => {
-    const newUser = { email, name: email.split('@')[0] };
-    setUser(newUser);
-    localStorage.setItem('pantry_user', JSON.stringify(newUser));
+  const signup = async (email: string) => {
+    try {
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+        credentials: 'include', // Important to allow the backend to set the HTTP-only cookie
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data.user);
+      } else {
+        console.error('Signup failed');
+      }
+    } catch (error) {
+      console.error('Error during signup', error);
+    }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('pantry_user');
+  const logout = async () => {
+    try {
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include', // Important to allow the backend to clear the HTTP-only cookie
+      });
+      setUser(null);
+    } catch (error) {
+      console.error('Error during logout', error);
+    }
   };
 
   return (
