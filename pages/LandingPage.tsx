@@ -66,7 +66,7 @@ const LandingPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full mt-2 overflow-hidden">
-                    <div className="bg-red-500 h-full rounded-full" style={{ width: '80%' }}></div>
+                    <div className="bg-red-500 h-full w-4/5 rounded-full"></div>
                   </div>
                 </div>
               </div>
