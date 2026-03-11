@@ -1,13 +1,14 @@
 import React from 'react';
+import HeroSection from '../components/HeroSection';
+import FeaturesSection from '../components/FeaturesSection';
+import CTABanner from '../components/CTABanner';
 
 const LandingPage: React.FC = () => {
-  const handleInactive = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new Event('trigger-toast'));
-  };
-
   return (
     <>
+      <HeroSection />
+      <FeaturesSection />
+      <CTABanner />
       {/* Hero Section */}
       <section className="relative px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
