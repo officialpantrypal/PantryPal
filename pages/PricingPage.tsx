@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { handleInactive } from '../utils/events';
 
 const PricingPage: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -24,11 +25,6 @@ const PricingPage: React.FC = () => {
         } 
       });
     }
-  };
-  
-  const handleInactive = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.dispatchEvent(new Event('trigger-toast'));
   };
 
   // Prices
