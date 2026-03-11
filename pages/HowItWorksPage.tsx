@@ -32,7 +32,7 @@ const HowItWorksPage: React.FC = () => {
             <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors font-black text-8xl leading-none select-none z-0">1</div>
             <div className="relative z-10 flex flex-col gap-6 h-full">
               <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA60XA6NURRntnoO_NP4hkr7yadkvvZ8YWNMHG1wIc4DTCsCO3tu0vbxc8xFGkumv_vqBFoJyWQEmgKbGKJWdv6bHGvHfGhjMzH6gQ3R6Nw6P8DldgV1vTHtNI4_ngY759EI2y87gvx_4M4Flp9ge9sLvCd8vd3N7kBSxmW_b1Hx92XSnWO4ktDFwYtt7nV7yEI38ZYPwO1J29kBgIRP5XS3NgUKjWwhZ0ob4JWgd3xnj-lqb-oy0_N8qgnevJ_A5vix9Wo0LQo2cc')" }}></div>
+                <div className="absolute inset-0 bg-cover bg-center bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuA60XA6NURRntnoO_NP4hkr7yadkvvZ8YWNMHG1wIc4DTCsCO3tu0vbxc8xFGkumv_vqBFoJyWQEmgKbGKJWdv6bHGvHfGhjMzH6gQ3R6Nw6P8DldgV1vTHtNI4_ngY759EI2y87gvx_4M4Flp9ge9sLvCd8vd3N7kBSxmW_b1Hx92XSnWO4ktDFwYtt7nV7yEI38ZYPwO1J29kBgIRP5XS3NgUKjWwhZ0ob4JWgd3xnj-lqb-oy0_N8qgnevJ_A5vix9Wo0LQo2cc')]"></div>
                 <div className="absolute inset-0 bg-black/10"></div>
                 {/* Mock UI Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white dark:bg-gray-900 p-3 rounded-lg shadow-lg flex items-center gap-3 animate-pulse">
@@ -132,7 +132,7 @@ const HowItWorksPage: React.FC = () => {
             <div className="absolute top-6 right-6 text-primary/10 group-hover:text-primary/20 transition-colors font-black text-8xl leading-none select-none z-0">3</div>
             <div className="relative z-10 flex flex-col gap-6 h-full">
               <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKL0OFga_Ukywlfgn9npD-gtkZQL5arJECK7I3GpM-7UbVJnZ9b-L4J16_V-yPJvPWwlDYSuMOqwgn6I62KtUv3Cr0jLpJfzXTeyNf-431YK6LYkFUdaAF6MtRYTeZ44Dhm2_4YXrtCCpKTfHJnjxBOtB-MIZwqFbcPDaHBeRz3nUFaqk1UJysAwZjY70OjMFUGbmN_hB3m-vOXrezmH4uma-yS2eRUpckToSgQI8pmIUdq3-mbWDlfB-LFBGCqo4OxCIN6P9azvE')" }}></div>
+                <div className="absolute inset-0 bg-cover bg-center bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKL0OFga_Ukywlfgn9npD-gtkZQL5arJECK7I3GpM-7UbVJnZ9b-L4J16_V-yPJvPWwlDYSuMOqwgn6I62KtUv3Cr0jLpJfzXTeyNf-431YK6LYkFUdaAF6MtRYTeZ44Dhm2_4YXrtCCpKTfHJnjxBOtB-MIZwqFbcPDaHBeRz3nUFaqk1UJysAwZjY70OjMFUGbmN_hB3m-vOXrezmH4uma-yS2eRUpckToSgQI8pmIUdq3-mbWDlfB-LFBGCqo4OxCIN6P9azvE')]"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <div className="flex items-center gap-2 mb-1">
