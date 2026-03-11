@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const FREE_FEATURES = ['Unlimited receipt scanning', 'Manual item entry & editing', 'AI expiration tracking'];
+const PREMIUM_FEATURES = ['Unlimited Recipe Generation', 'Advanced AI tracking', 'Smart notifications', 'Nutritional Analysis'];
+const FAMILY_FEATURES = ['Shared Pantry Sync', 'Up to 5 Users', 'Shopping List Collaboration'];
+
 const PricingPage: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
   const navigate = useNavigate();
@@ -91,7 +95,7 @@ const PricingPage: React.FC = () => {
                 Get Started
               </button>
               <div className="space-y-4 flex-grow">
-                {['Unlimited receipt scanning', 'Manual item entry & editing', 'AI expiration tracking'].map((item, i) => (
+                {FREE_FEATURES.map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
                     <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                     {item}
@@ -130,7 +134,7 @@ const PricingPage: React.FC = () => {
                   <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                   Everything in Free
                 </div>
-                {['Unlimited Recipe Generation', 'Advanced AI tracking', 'Smart notifications', 'Nutritional Analysis'].map((item, i) => (
+                {PREMIUM_FEATURES.map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
                     <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                     {item}
@@ -163,7 +167,7 @@ const PricingPage: React.FC = () => {
                   <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                   Everything in Premium
                 </div>
-                {['Shared Pantry Sync', 'Up to 5 Users', 'Shopping List Collaboration'].map((item, i) => (
+                {FAMILY_FEATURES.map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
                     <span className="material-symbols-outlined text-primary text-[20px]">check_circle</span>
                     {item}
