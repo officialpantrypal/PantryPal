@@ -49,7 +49,7 @@ const LandingPage: React.FC = () => {
             {/* Hero Image Block */}
             <div className="lg:col-span-7 relative h-[400px] lg:h-auto overflow-hidden rounded-2xl bg-[#e8f5e9] dark:bg-[#1a2e22] shadow-soft group">
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/10 dark:to-black/40 z-10"></div>
-              <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFEQfAZuEYJAjoR6KsxdMWtqwKk4lfjUYlfUyWuupX3G0kKgnIsJQhiNFWo9VmWafgF0A4vTn9E4M2CXVK65M6JyCvaNUJxt7lybRTmhiSgzSTS0oo3cdqhumNKdxaMQaLGGwkg1ngw6fzmtBMFnx9AKLyF2w-R5ShIdndisZseKw8WqlXG9_-TpbYEIVoBAl5U1H9VZdJfC9vdElGJCiFSgAVM4jU_XZbazMjYKI7zfvjB8Dpmj9ciWtJLyZbIKaO7iiCP7RUlTc')" }}></div>
+              <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFEQfAZuEYJAjoR6KsxdMWtqwKk4lfjUYlfUyWuupX3G0kKgnIsJQhiNFWo9VmWafgF0A4vTn9E4M2CXVK65M6JyCvaNUJxt7lybRTmhiSgzSTS0oo3cdqhumNKdxaMQaLGGwkg1ngw6fzmtBMFnx9AKLyF2w-R5ShIdndisZseKw8WqlXG9_-TpbYEIVoBAl5U1H9VZdJfC9vdElGJCiFSgAVM4jU_XZbazMjYKI7zfvjB8Dpmj9ciWtJLyZbIKaO7iiCP7RUlTc')]"></div>
               
               {/* Floating Card */}
               <div className="absolute bottom-6 right-6 z-20 hidden sm:block animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -66,7 +66,7 @@ const LandingPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="w-full bg-gray-100 dark:bg-gray-700 h-1.5 rounded-full mt-2 overflow-hidden">
-                    <div className="bg-red-500 h-full rounded-full" style={{ width: '80%' }}></div>
+                    <div className="bg-red-500 h-full rounded-full w-4/5"></div>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const LandingPage: React.FC = () => {
       {/* CTA Banner */}
       <section className="px-4 py-8 sm:px-6 lg:px-8 mb-8">
         <div className="mx-auto max-w-7xl rounded-2xl bg-primary px-8 py-12 text-center shadow-glow sm:px-12 md:py-16 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:24px_24px]"></div>
           <div className="relative z-10 flex flex-col items-center">
             <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
               Help us build a waste-free future.
