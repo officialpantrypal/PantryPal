@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const SettingsPage: React.FC = () => {
   const { logout, user } = useAuth();
   const navigate = useNavigate();
+
+  const [notifications, setNotifications] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   React.useEffect(() => {
     if (!user) {
@@ -15,6 +18,26 @@ const SettingsPage: React.FC = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleSave = () => {
+    // Save settings logic would go here
+  };
+
+  const handleDarkModeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isDark = e.target.checked;
+    setDarkMode(isDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    handleSave();
+  };
+
+  const handleNotificationsToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNotifications(e.target.checked);
+    handleSave();
   };
 
   return (
@@ -50,16 +73,30 @@ const SettingsPage: React.FC = () => {
             <h2 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 px-2">Preferences</h2>
             <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-soft overflow-hidden divide-y divide-gray-100 dark:divide-gray-700">
                <div className="p-4 flex justify-between items-center">
-                 <span className="text-text-main dark:text-white font-medium">Notification Settings</span>
+                 <label htmlFor="notification-toggle" className="text-text-main dark:text-white font-medium">Notification Settings</label>
                  <label className="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" defaultChecked className="sr-only peer" />
+                    <input
+                      id="notification-toggle"
+                      aria-label="Notification Settings"
+                      type="checkbox"
+                      checked={notifications}
+                      onChange={handleNotificationsToggle}
+                      className="sr-only peer"
+                    />
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                   </label>
               </div>
               <div className="p-4 flex justify-between items-center">
-                 <span className="text-text-main dark:text-white font-medium">Expiration Alerts</span>
+                 <label htmlFor="dark-mode-toggle" className="text-text-main dark:text-white font-medium">Dark Mode</label>
                  <label className="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" defaultChecked className="sr-only peer" />
+                    <input
+                      id="dark-mode-toggle"
+                      aria-label="Dark Mode"
+                      type="checkbox"
+                      checked={darkMode}
+                      onChange={handleDarkModeToggle}
+                      className="sr-only peer"
+                    />
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                   </label>
               </div>
