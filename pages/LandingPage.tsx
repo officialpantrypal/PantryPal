@@ -129,7 +129,7 @@ const LandingPage: React.FC = () => {
       {/* CTA Banner */}
       <section className="px-4 py-8 sm:px-6 lg:px-8 mb-8">
         <div className="mx-auto max-w-7xl rounded-2xl bg-primary px-8 py-12 text-center shadow-glow sm:px-12 md:py-16 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[size:24px_24px]"></div>
           <div className="relative z-10 flex flex-col items-center">
             <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
               Help us build a waste-free future.
